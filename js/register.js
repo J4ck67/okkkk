@@ -1,33 +1,83 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+ // Import the functions you need from the SDKs you need
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+ import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+ import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword }from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+ import { getFirestore,setDoc,doc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyA9o8j7JGeVPIPASGEOSrPBvXYKE3B7DsM",
-  authDomain: "website-9130d.firebaseapp.com",
-  projectId: "website-9130d",
-  storageBucket: "website-9130d.firebasestorage.app",
-  messagingSenderId: "543054362685",
-  appId: "1:543054362685:web:7eaec20b3b17fcc52e5254",
-  measurementId: "G-CY77678FF7"
+ const firebaseConfig = {
+  apiKey: "AIzaSyCg4r-vFgWG4oZ5H1dqhl2pY_9YIA4pNcc",
+  authDomain: "test-193d7.firebaseapp.com",
+  projectId: "test-193d7",
+  storageBucket: "test-193d7.firebasestorage.app",
+  messagingSenderId: "427429647626",
+  appId: "1:427429647626:web:e6c8d0e813b8c99c1956f3"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+ // Initialize Firebase
+ const app = initializeApp(firebaseConfig);
+ const analytics = getAnalytics(app);
+ const auth=getAuth();
+ const db=getFirestore();
 
 
-const email =document.getElementById('email').value;
-const password =document.getElementById('password').value;
 
-// submit button
-const button =document.getElementById('submit');
-submit.addEventListener("click",function(event){
-event.preventDefault()
-alert(5)
-})
+    const email=document.getElementById('semail').value;
+    const password=document.getElementById('spassword').valuealue;
+    const username=document.getElementById('susername').value;
+
+    const signup = document.getElementById('submitsignin');
+    signup.addEventListener('click',function(event){
+      event.preventDefault()
+      alert(5)
+    })
+
+
+ 
+//  function showMessage(message,divId) {
+//   var messageDiv=document.getElementById(divId);
+//   messageDiv.style.display="block";
+//   messageDiv.innerHTML=message;
+//   messageDiv.style.opacity=1;
+//   setTimeout(function(){
+//     messageDiv.style.opacity=0;
+//   },5000);
+    
+// //  }
+
+//  const signup = document.getElementById('submitsignin');
+//  signup.addEventListener('click',(event)=>{
+//     event.preventDefault();
+//     const email=document.getElementById('semail').value;
+//     const password=document.getElementById('spassword').valuealue;
+//     const username=document.getElementById('susername').value;
+
+    
+
+//     createUserWithEmailAndPassword(auth,email,password)
+//     .then((userCredential)=>{
+//         const user=userCredential.user
+//         const userdata={
+//             email:email,
+//             username:username,
+//         }; 
+//         showMessage('account created succesfully','signupmessage');
+//         const docRef=doc(db,"users",user.uid);
+//         setDoc(docRef,userdata)
+//         .then(()=>{
+//             window.location.href='index.html';
+//         })
+//         .catch((error)=>{
+//             console.error("error wrirting document",error);
+
+//         });
+//     })
+//     .catch((error)=>{
+//        const errorCode=errorCode.code;
+//        if(errorCode=='auth/email-already-in-use'){
+//         showMessage(' email already exists','signupmessage');
+//        }
+//        else{
+//         showMessage('unable create account','signupmessage')
+//        }
+//     })
+//  });
